@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance - School Management System</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h2><i class="fas fa-school"></i> School MS</h2>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="students.html"><i class="fas fa-user-graduate"></i> Students</a></li>
+                    <li><a href="teachers.html"><i class="fas fa-chalkboard-teacher"></i> Teachers</a></li>
+                    <li><a href="classes.html"><i class="fas fa-book"></i> Classes</a></li>
+                    <li><a href="attendance.html" class="active"><i class="fas fa-clipboard-check"></i> Attendance</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="header">
+                <h1><i class="fas fa-clipboard-check"></i> Attendance Tracking</h1>
+            </div>
+
+            <!-- Mark Attendance -->
+            <div class="content-card">
+                <h2><i class="fas fa-user-check"></i> Mark Today's Attendance</h2>
+                <div class="attendance-form">
+                    <div class="form-group">
+                        <label for="attendanceDate">Date</label>
+                        <input type="date" id="attendanceDate">
+                    </div>
+                    <div class="attendance-list" id="attendanceList">
+                        <div class="loading">
+                            <div class="spinner"></div>
+                            <p>Loading students...</p>
+                        </div>
+                    </div>
+                    <div style="text-align: right; margin-top: 20px;">
+                        <button class="btn btn-primary" onclick="saveAttendance()">
+                            <i class="fas fa-save"></i> Save Attendance
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Attendance History -->
+            <div class="content-card">
+                <h2><i class="fas fa-history"></i> Attendance History</h2>
+                <div class="actions-bar">
+                    <div class="search-box">
+                        <input type="text" id="searchInput" placeholder="Search by student name or class...">
+                    </div>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Student Name</th>
+                                <th>Class</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="attendanceHistory">
+                            <tr>
+                                <td colspan="6" style="text-align: center; padding: 40px;">
+                                    <div class="loading">
+                                        <div class="spinner"></div>
+                                        <p>Loading attendance history...</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/attendance.js"></script>
+</body>
+</html>
